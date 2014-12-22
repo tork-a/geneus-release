@@ -1,0 +1,8 @@
+ros-indigo-geneus (0.1.0-0trusty) trusty; urgency=high
+
+  * rewrite everything only depends on genmsg
+  * Contributors: Kei Okada
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Wed, 01 Oct 2014 15:00:00 -0000
+
+
