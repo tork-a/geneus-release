@@ -1,3 +1,24 @@
+## geneus (indigo) - 2.1.0-0
+
+The packages in the `geneus` repository were released into the `indigo` distro by running `/usr/bin/bloom-release geneus --track indigo -r indigo` on `Thu, 12 Feb 2015 04:02:40 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: https://github.com/tork-a/geneus-release.git
+- rosdistro version: `2.0.1-1`
+- old version: `2.0.1-1`
+- new version: `2.1.0-0`
+
+Versions of tools used:
+- bloom version: `0.5.18`
+- catkin_pkg version: `0.2.6`
+- rosdep version: `0.11.1`
+- rosdistro version: `0.4.0`
+- vcstools version: `0.1.36`
+
+
 ## geneus (indigo) - 2.0.1-1
 
 The packages in the `geneus` repository were released into the `indigo` distro by running `/usr/bin/bloom-release geneus --track indigo -r indigo` on `Tue, 10 Feb 2015 03:54:32 -0000`
