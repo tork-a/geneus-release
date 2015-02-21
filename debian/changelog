@@ -1,0 +1,38 @@
+ros-indigo-geneus (2.1.1-0saucy) saucy; urgency=high
+
+  * [geneus_main.py] use rospack to find build(only package have msg/src) dependency
+  * [.travis.yml] add test code to check work with roseus
+  * [src/geneus/geneus_main.py] add comments
+  * fix ros::load-ros-package order by dependencies
+  * Contributors: Kei Okada, Yuki Furuta
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Fri, 20 Feb 2015 15:00:00 -0000
+
+ros-indigo-geneus (2.1.0-0saucy) saucy; urgency=high
+
+  * fix message generation for uint8(char)/int8(byte) (#4,#6)
+  * Contributors: Kei Okada
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Wed, 11 Feb 2015 15:00:00 -0000
+
+ros-indigo-geneus (2.0.1-0saucy) saucy; urgency=high
+
+  * [scripts/gen_eus.py] set executable
+  * Contributors: Kei Okada
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Mon, 09 Feb 2015 15:00:00 -0000
+
+ros-indigo-geneus (1.0.0-0saucy) saucy; urgency=high
+
+
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Mon, 05 Jan 2015 15:00:00 -0000
+
+ros-indigo-geneus (0.1.0-0saucy) saucy; urgency=high
+
+  * rewrite everything only depends on genmsg
+  * Contributors: Kei Okada
+
+ -- Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>  Wed, 01 Oct 2014 15:00:00 -0000
+
+
