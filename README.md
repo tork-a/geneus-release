@@ -1,3 +1,24 @@
+## geneus (hydro) - 2.2.0-0
+
+The packages in the `geneus` repository were released into the `hydro` distro by running `/usr/bin/bloom-release geneus -r hydro -t hydro` on `Tue, 21 Apr 2015 08:00:09 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: https://github.com/tork-a/geneus-release.git
+- rosdistro version: `2.1.2-0`
+- old version: `2.1.2-0`
+- new version: `2.2.0-0`
+
+Versions of tools used:
+- bloom version: `0.5.19`
+- catkin_pkg version: `0.2.6`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.0`
+- vcstools version: `0.1.36`
+
+
 ## geneus (jade) - 2.1.2-0
 
 The packages in the `geneus` repository were released into the `jade` distro by running `/usr/bin/bloom-release geneus --track jade -r jade` on `Wed, 25 Feb 2015 06:47:37 -0000`
