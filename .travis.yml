@@ -36,14 +36,24 @@ script:
   - rosdep install -r -n --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
   - source /opt/ros/$ROS_DISTRO/setup.bash
   - catkin_make $ROS_PARALLEL_JOBS
+  # use latest catkin (including jobserver)
+  ### before_install: # Use this to prepare the system to install prerequisites or dependencies
+  ## to avoid stty error, until catkin_tools 2.0.x (http://stackoverflow.com/questions/27969057/cant-launch-catkin-build-from-jenkins-job)
+  - sudo apt-get install -q -qq -y python-setuptools python-catkin-pkg
+  - if [ ! -e /tmp/catkin_tools ]; then (cd /tmp/; git clone -q https://github.com/catkin/catkin_tools); fi
+  - (cd /tmp/catkin_tools; sudo python setup.py --quiet install)
+  ### https://github.com/ros/catkin/pull/705
+  - if [ ! -e /tmp/catkin ]; then (cd /tmp/; git clone -q https://github.com/ros/catkin); fi
+  - (cd /tmp/catkin; sudo python setup.py --quiet install)
   # test for roseus
   - sudo apt-get install -qq -y ros-hydro-roseus
   - sudo dpkg -r --force-depends ros-hydro-geneus
   # need to use latest test codes
-  - sudo wget https://raw.githubusercontent.com/jsk-ros-pkg/jsk_roseus/master/roseus/test/test-genmsg.sh -O /opt/ros/hydro/share/roseus/test/test-genmsg.sh
-  - sudo wget https://raw.githubusercontent.com/k-okada/jsk_roseus/fix_generate_all/roseus/scripts/generate-all-msg-srv.sh -O /opt/ros/hydro/share/roseus/scripts/generate-all-msg-srv.sh
   - rm -fr devel build src/*
   - cd src
+  - git clone http://github.com/jsk-ros-pkg/jsk_roseus /tmp/jsk_roseus
+  - cp -r /tmp/jsk_roseus/roseus ./
+  #- sudo wget https://raw.githubusercontent.com/k-okada/jsk_roseus/fix_generate_all/roseus/scripts/generate-all-msg-srv.sh -O /opt/ros/hydro/share/roseus/scripts/generate-all-msg-srv.sh
   - ln -s $CI_SOURCE_PATH . # Link the repo we are testing to the new workspace
   - cd ..
   - source /opt/ros/$ROS_DISTRO/setup.bash
@@ -51,3 +61,6 @@ script:
   - source devel/setup.bash
   - rostest roseus test-genmsg.catkin.test
   - rostest roseus test-genmsg-oneworkspace.catkin.launch
+after_failure:
+  - rostest -t roseus test-genmsg.catkin.test
+  - rostest -t roseus test-genmsg-oneworkspace.catkin.launch
