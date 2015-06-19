@@ -2,6 +2,11 @@
 Changelog for package geneus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.2.3 (2015-06-19)
+------------------
+* [src/geneus/geneus_main.py] Call get_pkg_map if pkg_map is None
+* Contributors: Kentaro Wada
+
 2.2.2 (2015-06-01)
 ------------------
 * [.travis.yml] add pr2eus test
