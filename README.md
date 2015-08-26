@@ -1,3 +1,24 @@
+## geneus (jade) - 2.2.4-0
+
+The packages in the `geneus` repository were released into the `jade` distro by running `/usr/bin/bloom-release geneus --track jade --rosdistro jade` on `Wed, 26 Aug 2015 23:59:32 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: https://github.com/tork-a/geneus-release.git
+- rosdistro version: `2.2.1-0`
+- old version: `2.2.1-0`
+- new version: `2.2.4-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.2`
+- vcstools version: `0.1.36`
+
+
 ## geneus (indigo) - 2.2.4-0
 
 The packages in the `geneus` repository were released into the `indigo` distro by running `/usr/bin/bloom-release geneus --track indigo --rosdistro indigo` on `Wed, 08 Jul 2015 01:49:20 -0000`
