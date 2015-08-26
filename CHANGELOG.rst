@@ -2,6 +2,27 @@
 Changelog for package geneus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.2.4 (2015-07-08)
+------------------
+* [src/geneus/generate.py] bool array is list, not lisp-array
+* [src/geneus/generate.py] use list for time type object
+* src/geneus/generate.py fix for variable bool array case, https://github.com/jsk-ros-pkg/jsk_roseus/pull/330
+* [package.xml] Now doesn't depend on python-rospkg
+* Contributors: Kei Okada, Kentaro Wada
+
+2.2.3 (2015-06-19)
+------------------
+* [src/geneus/geneus_main.py] Call get_pkg_map if pkg_map is None
+* Contributors: Kentaro Wada
+
+2.2.2 (2015-06-01)
+------------------
+* [.travis.yml] add pr2eus test
+* [src/geneus/generate.py] make intern before shadow, see https://github.com/jsk-ros-pkg/jsk_roseus/issues/313
+* [geneus_main.py] has_key -> in
+* [geneus_main.py] generate message even if geneus is not found
+* Contributors: Kei Okada, Kentaro Wada
+
 2.2.1 (2015-04-24)
 ------------------
 * [geneus_main.py] fix when pkg_map does not have geneus

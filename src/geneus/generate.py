@@ -127,7 +127,7 @@ def field_initvalue(f):
         elt_type = ':'+elt_type
     if f.is_array:
         len = f.array_len or 0
-        if f.is_builtin and not is_string(f.base_type):
+        if f.is_builtin and not is_string(f.base_type) and not is_bool(f.base_type) and not is_time(f.base_type):
             return '(make-array %s :initial-element %s :element-type %s)'%(len, initvalue, elt_type)
         else:
             return '(let (r) (dotimes (i %s) (push %s r)) r)'%(len, initvalue)
@@ -508,11 +508,11 @@ def write_deserialize_field(s, f, pkg):
                 s.write('(dotimes (i (length %s))'%var)
                 var = '(elt %s i)'%var
             else:
-                if is_float(f.base_type) or is_integer(f.base_type) or is_string(f.base_type):
+                if is_float(f.base_type) or is_integer(f.base_type) or is_string(f.base_type) or is_bool(f.base_type):
                     s.write('(let (n)')
                     with Indent(s):
                         s.write('(setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)')
-                        if is_string(f.base_type):
+                        if is_string(f.base_type) or is_bool(f.base_type):
                             s.write('(setq %s (make-list n))'%var)
                         else:
                             s.write('(setq %s (instantiate %s-vector n))'%(var, lisp_type(f.base_type, f.is_array)))
@@ -665,6 +665,7 @@ def write_provide(s, msg_context, spec):
 def write_constants(s, spec):
     if spec.constants:
         for c in spec.constants:
+            s.write('(intern "*%s*" (find-package "%s::%s"))'%(c.name.upper(), spec.package.upper(), spec.actual_name.upper()))
             s.write('(shadow \'*%s* (find-package "%s::%s"))'%(c.name.upper(), spec.package.upper(), spec.actual_name.upper()))
             if c.type == 'string':
                 s.write('(defconstant %s::%s::*%s* "%s")'%(spec.package, spec.actual_name, c.name.upper(), c.val.replace('"', '\\"')))
