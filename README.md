@@ -1,3 +1,24 @@
+## geneus (kinetic) - 2.2.5-0
+
+The packages in the `geneus` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release geneus --track kinetic -r kinetic` on `Thu, 10 Mar 2016 01:02:22 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.2.5-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.4`
+- vcstools version: `0.1.38`
+
+
 ## geneus (jade) - 2.2.5-0
 
 The packages in the `geneus` repository were released into the `jade` distro by running `/usr/bin/bloom-release geneus --track jade --rosdistro jade` on `Sat, 21 Nov 2015 09:26:46 -0000`
