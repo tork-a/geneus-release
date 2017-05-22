@@ -1,0 +1,12 @@
+Source: ros-lunar-geneus
+Section: misc
+Priority: extra
+Maintainer: Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin (>= 0.5.78), ros-lunar-genmsg
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-lunar-geneus
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-genmsg
+Description: EusLisp ROS message and service generators.
