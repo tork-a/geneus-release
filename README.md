@@ -1,3 +1,26 @@
+## geneus (melodic) - 2.2.6-0
+
+The packages in the `geneus` repository were released into the `melodic` distro by running `/usr/bin/bloom-release geneus --rosdistro melodic --track melodic` on `Sun, 28 Jan 2018 09:27:00 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.2.6-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.2`
+- catkin_pkg version: `0.3.6`
+- rosdep version: `0.11.8`
+- rosdistro version: `0.6.2`
+- vcstools version: `0.1.39`
+
+
 ## geneus (lunar) - 2.2.6-0
 
 The packages in the `geneus` repository were released into the `lunar` distro by running `/usr/bin/bloom-release geneus -t lunar -r lunar` on `Mon, 22 May 2017 03:36:16 -0000`
