@@ -1,3 +1,26 @@
+## geneus (noetic) - 3.0.0-1
+
+The packages in the `geneus` repository were released into the `noetic` distro by running `/usr/bin/bloom-release geneus --rosdistro noetic` on `Mon, 27 Jan 2020 13:15:10 -0000`
+
+The `geneus` package was released.
+
+Version of package(s) in repository `geneus`:
+
+- upstream repository: https://github.com/jsk-ros-pkg/geneus
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `3.0.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.0`
+- catkin_pkg version: `0.4.14`
+- rosdep version: `0.18.0`
+- rosdistro version: `0.7.5`
+- vcstools version: `0.1.42`
+
+
 ## geneus (melodic) - 2.2.6-0
 
 The packages in the `geneus` repository were released into the `melodic` distro by running `/usr/bin/bloom-release geneus --rosdistro melodic --track melodic` on `Sun, 28 Jan 2018 09:27:00 -0000`
