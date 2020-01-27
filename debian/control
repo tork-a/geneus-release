@@ -1,0 +1,12 @@
+Source: ros-noetic-geneus
+Section: misc
+Priority: optional
+Maintainer: Kei Okada <k-okada@jsk.t.u-tokyo.ac.jp>
+Build-Depends: debhelper (>= 9.0.0), python3-setuptools, ros-noetic-catkin (>= 0.5.78), ros-noetic-genmsg
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-geneus
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-genmsg
+Description: EusLisp ROS message and service generators.
