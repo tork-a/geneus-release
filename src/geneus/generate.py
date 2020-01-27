@@ -264,8 +264,10 @@ def write_slot_argument(s, field):
         s.write('((:%s __%s) %s)'%(var, var, field_initvalue(field)))
     else:
         if field.is_array:
-            len = field.array_len or 0
-            s.write('((:%s __%s) (let (r) (dotimes (i %s) (push (instance %s :init) r)) r))'%(var, var, len, field_type(field))) ## FIX??? need to use len = f.array_len or 0
+            if field.array_len:
+                s.write('((:%s __%s) (let (r) (dotimes (i %s) (push (instance %s :init) r)) r))'%(var, var, field.array_len, field_type(field)))
+            else:
+                s.write('((:%s __%s) ())'%(var, var))
         else:
             s.write('((:%s __%s) (instance %s :init))'%(var, var, field_type(field)))
 
@@ -308,8 +310,12 @@ def write_accessors(s, spec):
             var = '_%s'%field.name
             with Indent(s, inc=1):
                 if field.is_builtin:
-                    s.write('(&optional _%s)'%var)
-                    s.write('(if _%s (setq %s _%s)) %s)'%(var,var,var,var))
+                    if field.type == "bool":
+                        s.write('(&optional (_%s :null))'%var)
+                        s.write('(if (not (eq _%s :null)) (setq %s _%s)) %s)'%(var,var,var,var))
+                    else:
+                        s.write('(&optional _%s)'%var)
+                        s.write('(if _%s (setq %s _%s)) %s)'%(var,var,var,var))
                 else:
                     s.write('(&rest _%s)'%var)
                     s.write('(if (keywordp (car _%s))'%var)
@@ -670,9 +676,16 @@ def write_constants(s, spec):
             if c.type == 'string':
                 s.write('(defconstant %s::%s::*%s* "%s")'%(spec.package, spec.actual_name, c.name.upper(), c.val.replace('"', '\\"')))
             elif c.type == 'bool':
-                s.write('(defconstant %s::%s::*%s* %s)'%(spec.package, spec.actual_name, c.name.upper(), "t" if c.val == "True" else "nil"))
+                s.write('(defconstant %s::%s::*%s* %s)'%(spec.package, spec.actual_name, c.name.upper(), "t" if c.val == True else "nil"))
             else:
                 s.write('(defconstant %s::%s::*%s* %s)'%(spec.package, spec.actual_name, c.name.upper(), c.val))
+        s.write('')
+        s.write('(defun %s::%s-to-symbol (const)'%(spec.package, spec.actual_name))
+        s.write('  (cond')
+        for c in [c for c in spec.constants if is_integer(c.type)]:
+            s.write("        ((= const %s) '%s::%s::*%s*)"%(c.val, spec.package, spec.actual_name, c.name))
+        s.write('        (t nil)))')
+        s.write('')
 
 def write_srv_component(s, spec, context, parent):
     spec.component_type='service'
